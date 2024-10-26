@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+  background-attachment: fixed;
+}
+
+body.dark-mode {
+  background-color: #282c34;
+  color: white;
+}
+
+body:not(.dark-mode) {
+  color: #333;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2), 0 0 40px rgba(255, 0, 255, 0.2);
+}
+
+h1 {
+  color: #61dafb;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  font-size: 2.5em;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.mode-toggle {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 500;
+}
+
+.mode-toggle:hover {
+  background-color: #4fa8d3;
+}
+
+body:not(.dark-mode) h1 {
+  color: #333;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+body:not(.dark-mode) .mode-toggle {
+  background-color: #4CAF50;
+  color: white;
+}
+
+body:not(.dark-mode) .mode-toggle:hover {
+  background-color: #45a049;
+}

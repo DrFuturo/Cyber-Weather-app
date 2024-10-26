@@ -1,0 +1,360 @@
+:root {
+  --primary-color: #00ffff;
+  --secondary-color: #ff00ff;
+  --background-color: rgba(10, 10, 42, 0.7);
+  --text-color: #ffffff;
+  --card-background: rgba(255, 255, 255, 0.1);
+  --card-border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.weather-widget {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), 0 0 40px rgba(255, 0, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: var(--card-border);
+  color: var(--text-color);
+}
+
+.weather-widget h2, .weather-widget h3, .weather-widget h4 {
+  color: var(--primary-color);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.current-weather {
+  background: var(--card-background);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), 0 0 30px rgba(255, 0, 255, 0.1);
+  border: var(--card-border);
+}
+
+.current-weather-main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.current-temp {
+  font-size: 4em;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.current-description {
+  font-size: 1.2em;
+  color: var(--secondary-color);
+}
+
+.current-weather-widgets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.widget {
+  flex: 1 1 calc(25% - 20px);
+  margin: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: var(--card-border);
+}
+
+.widget:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+.widget-label {
+  color: var(--secondary-color);
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  order: 1;
+}
+
+.widget-value {
+  color: var(--primary-color);
+  font-size: 1.2em;
+  font-weight: bold;
+  order: 2;
+}
+
+.forecast-section {
+  background: var(--card-background);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.forecast-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.forecast-nav-item {
+  flex: 0 1 18%; /* Adjust this value to control the width and spacing */
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin: 0 5px; /* Add horizontal margin for spacing */
+}
+
+.forecast-nav-item:hover, .forecast-nav-item.selected {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), 0 0 30px rgba(255, 0, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.forecast-nav-item p {
+  margin: 5px 0;
+}
+
+.forecast-nav-item img {
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+}
+
+.selected-day-details {
+  background: var(--card-background);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  border: var(--card-border);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), 0 0 30px rgba(255, 0, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hourly-forecast {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 0;
+  margin: 0 -10px; /* Negative margin to counteract item padding */
+  border-top: var(--card-border);
+}
+
+.hourly-item {
+  flex: 1 0 auto;
+  min-width: 80px; /* Minimum width for each item */
+  padding: 0 10px;
+  text-align: center;
+}
+
+.hourly-item p {
+  margin: 5px 0;
+}
+
+.hourly-item img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Add a scrollbar styling for better visibility */
+.hourly-forecast::-webkit-scrollbar {
+  height: 8px;
+}
+
+.hourly-forecast::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+}
+
+.hourly-forecast::-webkit-scrollbar-track {
+  background-color: var(--card-background);
+  border-radius: 4px;
+}
+
+.loading, .error {
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  color: var(--secondary-color);
+}
+
+.error {
+  color: #ff4444;
+}
+
+/* Reset the default filter and set consistent size for forecast and hourly icons */
+.forecast-nav-item img,
+.hourly-item img {
+  filter: none;
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+/* Keep current weather icon size normal */
+.current-weather-main img {
+  filter: none;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Sun (day) */
+.forecast-nav-item img[src*="01d"],
+.hourly-item img[src*="01d"] {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" fill="%23FFD700"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72 1.42-1.42"/></svg>');
+}
+
+/* Moon (night) - for forecast and hourly */
+.forecast-nav-item img[src*="01n"],
+.hourly-item img[src*="01n"] {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25"><path fill="%23C0C0C0" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>');
+}
+
+/* Sun (day) for current weather */
+.current-weather-main img[src*="01d"] {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" fill="%23FFD700"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72 1.42-1.42"/></svg>');
+}
+
+/* Moon (night) for current weather */
+.current-weather-main img[src*="01n"] {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50"><path fill="%23C0C0C0" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>');
+}
+
+/* Clouds */
+img[src*="02d"], img[src*="02n"], img[src*="03d"], img[src*="03n"], img[src*="04d"], img[src*="04n"] {
+  filter: invert(80%) sepia(10%) saturate(100%) hue-rotate(180deg) brightness(100%) contrast(100%);
+}
+
+/* Rain */
+img[src*="09d"], img[src*="09n"], img[src*="10d"], img[src*="10n"] {
+  filter: invert(70%) sepia(50%) saturate(500%) hue-rotate(180deg) brightness(90%) contrast(90%);
+}
+
+/* Thunderstorm */
+img[src*="11d"], img[src*="11n"] {
+  filter: invert(80%) sepia(50%) saturate(1000%) hue-rotate(300deg) brightness(100%) contrast(100%);
+}
+
+/* Snow */
+img[src*="13d"], img[src*="13n"] {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+/* Mist */
+img[src*="50d"], img[src*="50n"] {
+  filter: invert(80%) sepia(10%) saturate(100%) hue-rotate(180deg) brightness(100%) contrast(80%);
+}
+
+.sunrise-sunset-module {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  height: 120px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(255, 0, 255, 0.2);
+}
+
+.sun-path {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  left: 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50% 50% 0 0;
+}
+
+.sun-cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #FFD700 30%, #FF8C00 70%);
+  border-radius: 50%;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px #FFD700, 0 0 40px #FF8C00;
+  transition: left 0.5s ease, bottom 0.5s ease;
+}
+
+.time-label {
+  position: absolute;
+  bottom: 10px;
+  font-size: 14px;
+  color: var(--text-color);
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.sunrise-label {
+  left: 20px;
+}
+
+.sunset-label {
+  right: 20px;
+}
+
+/* Add a futuristic scanner effect */
+.sunrise-sunset-module::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.2),
+    transparent
+  );
+  animation: scan 8s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.widget.uv-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.widget.uv-index .widget-value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.widget.uv-index .uv-value {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.widget.uv-index .uv-description {
+  font-size: 0.8em;
+  color: var(--secondary-color);
+}
