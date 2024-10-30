@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Cyber-Weather-app/static/css/main.a0bd4e36.css",
-    "main.js": "/Cyber-Weather-app/static/js/main.b26581f9.js",
+    "main.js": "/Cyber-Weather-app/static/js/main.ea58d135.js",
     "index.html": "/Cyber-Weather-app/index.html",
     "main.a0bd4e36.css.map": "/Cyber-Weather-app/static/css/main.a0bd4e36.css.map",
-    "main.b26581f9.js.map": "/Cyber-Weather-app/static/js/main.b26581f9.js.map"
+    "main.ea58d135.js.map": "/Cyber-Weather-app/static/js/main.ea58d135.js.map"
   },
   "entrypoints": [
     "static/css/main.a0bd4e36.css",
-    "static/js/main.b26581f9.js"
+    "static/js/main.ea58d135.js"
   ]
 }
