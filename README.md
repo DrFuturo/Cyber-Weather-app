@@ -95,6 +95,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Contact
 
-Your Name - [@YourTwitter](https://twitter.com/yourtwitter)
+Your Name - [@DrFuturo_](https://x.com/DrFuturo_)
 
 Project Link: [https://github.com/DrFuturo/Cyber-Weather-app](https://github.com/DrFuturo/Cyber-Weather-app)
