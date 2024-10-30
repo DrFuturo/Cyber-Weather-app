@@ -1,5 +1,5 @@
 {
-  "name": "weather-app-test",
+  "name": "Cyber-Weather-app-test",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -41,5 +41,5 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gh-pages": "^6.2.0"
   },
-  "homepage": "https://drfuturo.github.io/weather-app"
+  "homepage": "https://drfuturo.github.io/Cyber-Weather-app"
 }
