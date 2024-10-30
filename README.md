@@ -2,19 +2,19 @@
 
 A modern, cyberpunk-themed weather application built with React that provides current weather conditions and forecasts.
 
-![Cyber Weather App Screenshot](placeholder-for-screenshot.png)
+![Cyber Weather App Screenshot](ScreenApp.png)
 
-?? [Live Demo](https://drfuturo.github.io/Cyber-Weather-app)
+🤖 [Live Demo](https://drfuturo.github.io/Cyber-Weather-app)
 
 ## Features
 
-- ??? Real-time weather data display
-- ?? Location-based weather detection
-- ?? City search functionality
-- ?? Dark/Light mode toggle
-- ?? Responsive design
-- ?? Cyberpunk-inspired UI
-- ?? Detailed weather information including:
+- 🌡️ Real-time weather data display
+- 🌍 Location-based weather detection
+- 🔍 City search functionality
+- 🌓 Dark/Light mode toggle
+- 📱 Responsive design
+- 🎨 Cyberpunk-inspired UI
+- 📊 Detailed weather information including:
   - Temperature
   - Humidity
   - Wind speed
@@ -22,7 +22,7 @@ A modern, cyberpunk-themed weather application built with React that provides cu
   - Sunrise/Sunset times
   - 5-day forecast
   - Hourly forecast
-- ?? Random city display when no location is provided
+- 🎯 Random city display when no location is provided
 
 ## Technologies Used
 
@@ -95,6 +95,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Contact
 
-Your Name - [@YourTwitter](https://twitter.com/yourtwitter)
+DrFuturo on X - [@DrFuturo_](https://x.com/DrFuturo_)
 
 Project Link: [https://github.com/DrFuturo/Cyber-Weather-app](https://github.com/DrFuturo/Cyber-Weather-app)
