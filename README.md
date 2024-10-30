@@ -2,7 +2,7 @@
 
 A modern, cyberpunk-themed weather application built with React that provides current weather conditions and forecasts.
 
-![Cyber Weather App Screenshot](placeholder-for-screenshot.png)
+![Cyber Weather App Screenshot](ScreenApp.png)
 
 ?? [Live Demo](https://drfuturo.github.io/Cyber-Weather-app)
 
