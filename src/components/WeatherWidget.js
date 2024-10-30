@@ -14,6 +14,13 @@ function WeatherWidget({ city, userLocation }) {
     return defaultCities[Math.floor(Math.random() * defaultCities.length)];
   });
 
+  // Add a function to change random city
+  const changeRandomCity = () => {
+    const defaultCities = ["London", "Paris", "New York", "Tokyo", "Sydney"];
+    const newCity = defaultCities[Math.floor(Math.random() * defaultCities.length)];
+    setRandomCity(newCity);
+  };
+
   useEffect(() => {
     const fetchWeatherData = async () => {
       try {
@@ -206,6 +213,9 @@ function WeatherWidget({ city, userLocation }) {
 
   return (
     <div className="weather-widget">
+      {!city && !userLocation && (
+        <button onClick={changeRandomCity}>Try Another City</button>
+      )}
       <h2>{forecast.city}</h2>
       
       {/* Current Weather Section */}
