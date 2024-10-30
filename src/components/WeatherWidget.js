@@ -9,23 +9,10 @@ function WeatherWidget({ city, userLocation }) {
   const [uvIndex, setUvIndex] = useState(null);
   const [selectedDay, setSelectedDay] = useState(null);
   const [sunPosition, setSunPosition] = useState(0);
-
-  const defaultCities = [
-    "London",
-    "Paris",
-    "New York",
-    "Tokyo",
-    "Sydney",
-    "Dubai",
-    "Singapore",
-    "Rome",
-    "Barcelona",
-    "Berlin"
-  ];
-
-  const [randomCity, setRandomCity] = useState(() => 
-    defaultCities[Math.floor(Math.random() * defaultCities.length)]
-  );
+  const [randomCity, setRandomCity] = useState(() => {
+    const defaultCities = ["London", "Paris", "New York", "Tokyo", "Sydney"];
+    return defaultCities[Math.floor(Math.random() * defaultCities.length)];
+  });
 
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -89,7 +76,7 @@ function WeatherWidget({ city, userLocation }) {
     };
 
     fetchWeatherData();
-  }, [city, userLocation]);
+  }, [city, userLocation, randomCity]);
 
   useEffect(() => {
     const updateSunPosition = () => {
