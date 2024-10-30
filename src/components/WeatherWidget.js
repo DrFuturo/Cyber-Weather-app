@@ -2,6 +2,30 @@ import React, { useState, useEffect } from 'react';
 import './WeatherWidget.css';
 
 function WeatherWidget({ city, userLocation }) {
+  const defaultCities = [
+    "London",
+    "Paris",
+    "New York",
+    "Tokyo",
+    "Sydney",
+    "Dubai",
+    "Singapore",
+    "Rome",
+    "Barcelona",
+    "Berlin"
+  ];
+
+  const [randomCity, setRandomCity] = useState('');
+
+  useEffect(() => {
+    if (!city && !userLocation) {
+      const randomIndex = Math.floor(Math.random() * defaultCities.length);
+      setRandomCity(defaultCities[randomIndex]);
+    } else {
+      setRandomCity('');
+    }
+  }, [city, userLocation]);
+
   const [forecast, setForecast] = useState(null);
   const [currentWeather, setCurrentWeather] = useState(null);
   const [uvIndex, setUvIndex] = useState(null);
@@ -20,6 +44,10 @@ function WeatherWidget({ city, userLocation }) {
           currentUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${userLocation.lat}&lon=${userLocation.lon}&appid=${apiKey}&units=metric`;
         } else if (city) {
           const encodedCity = encodeURIComponent(city.trim());
+          forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodedCity}&appid=${apiKey}&units=metric`;
+          currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodedCity}&appid=${apiKey}&units=metric`;
+        } else if (randomCity) {
+          const encodedCity = encodeURIComponent(randomCity.trim());
           forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodedCity}&appid=${apiKey}&units=metric`;
           currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodedCity}&appid=${apiKey}&units=metric`;
         } else {
@@ -67,7 +95,7 @@ function WeatherWidget({ city, userLocation }) {
     };
 
     fetchWeatherData();
-  }, [city, userLocation]);
+  }, [city, userLocation, randomCity]);
 
   useEffect(() => {
     const updateSunPosition = () => {
