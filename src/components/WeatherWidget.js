@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './WeatherWidget.css';
 
 function WeatherWidget({ city, userLocation }) {
+  // State declarations
+  const [forecast, setForecast] = useState(null);
+  const [currentWeather, setCurrentWeather] = useState(null);
+  const [error, setError] = useState(null);
+  const [uvIndex, setUvIndex] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [sunPosition, setSunPosition] = useState(0);
+
   const defaultCities = [
     "London",
     "Paris",
