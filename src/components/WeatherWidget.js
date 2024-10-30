@@ -15,23 +15,9 @@ function WeatherWidget({ city, userLocation }) {
     "Berlin"
   ];
 
-  const [randomCity, setRandomCity] = useState('');
-
-  useEffect(() => {
-    if (!city && !userLocation) {
-      const randomIndex = Math.floor(Math.random() * defaultCities.length);
-      setRandomCity(defaultCities[randomIndex]);
-    } else {
-      setRandomCity('');
-    }
-  }, [city, userLocation]);
-
-  const [forecast, setForecast] = useState(null);
-  const [currentWeather, setCurrentWeather] = useState(null);
-  const [uvIndex, setUvIndex] = useState(null);
-  const [error, setError] = useState(null);
-  const [selectedDay, setSelectedDay] = useState(null);
-  const [sunPosition, setSunPosition] = useState(0);
+  const [randomCity, setRandomCity] = useState(() => 
+    defaultCities[Math.floor(Math.random() * defaultCities.length)]
+  );
 
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -95,7 +81,7 @@ function WeatherWidget({ city, userLocation }) {
     };
 
     fetchWeatherData();
-  }, [city, userLocation, randomCity]);
+  }, [city, userLocation]);
 
   useEffect(() => {
     const updateSunPosition = () => {
